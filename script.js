@@ -39,16 +39,17 @@ function register() {
 
 // Simpan data mahasiswa
 function simpanData() {
-  const nim = document.getElementById("nim").value;
+  const nrp = document.getElementById("nim").value;
   const nama = document.getElementById("nama").value;
   const jurusan = document.getElementById("jurusan").value;
+  const ukm = document.getElementById("ukm").value;
 
-  if (!nim || !nama || !jurusan) {
+  if (!nrp || !nama || !jurusan || !ukm) {
     alert("Semua kolom harus diisi!");
     return;
   }
 
-  const data = { nim, nama, jurusan };
+  const data = { nrp, nama, jurusan, ukm };
   const dataList = JSON.parse(localStorage.getItem("mahasiswa")) || [];
   dataList.push(data);
   localStorage.setItem("mahasiswa", JSON.stringify(dataList));
@@ -65,7 +66,7 @@ function tampilkanData() {
 
   dataList.forEach((item, idx) => {
     const li = document.createElement("li");
-    li.textContent = `${item.nama} - ${item.nim} (${item.jurusan})`;
+    li.textContent = `${item.nama} - ${item.nrp} (${item.jurusan}) → UKM: ${item.ukm}`;
     list.appendChild(li);
   });
 }
