@@ -7,15 +7,29 @@
 </head>
 <body>
   <div class="container">
-    <h2>🎓 Pendataan Mahasiswa UKM</h2>
-    <input type="text" id="nim" placeholder="NIM" />
+    <h2>Pendataan UKM Mahasiswa FTEIC</h2>
+    <input type="text" id="nrp" placeholder="NRP" />
     <input type="text" id="nama" placeholder="Nama Lengkap" />
-    <select id="jurusan">
-      <option value="">-- Pilih Jurusan --</option>
-      <option value="Informatika">Informatika</option>
-      <option value="Sistem Informasi">Sistem Informasi</option>
-      <option value="DKV">Desain Komunikasi Visual</option>
+
+    <select id="departemen">
+      <option value="">-- Pilih Departemen --</option>
+      <option value="Informatika">Teknik Informatika</option>
+      <option value="Biomedik">Teknik Biomedik</option>
+      <option value="Elektro">Teknik Elektro</option>
+      <option value="Komputer">Teknik Komputer</option>
+      <option value="Tekfor">Teknologi Informasi</option>
+      <option value="Sisfor">Sistem Informasi</option>
     </select>
+
+<!-- Dropdown Pilihan UKM -->
+    <select id="ukm">
+      <option value="">-- Pilih UKM --</option>
+      <option value="UKM Bela dirik">UKM Musik</option>
+      <option value="UKM Olahraga">UKM Olahraga</option>
+      <option value="UKM Seni">UKM Seni</option>
+      <option value="UKM Bidang Khusus">UKM Bidang Khusus</option>
+    </select>
+
     <button onclick="simpanData()">Simpan</button>
     <hr />
     <h3>📋 Data Mahasiswa</h3>
