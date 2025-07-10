@@ -39,7 +39,7 @@ function register() {
 
 // Simpan data mahasiswa
 function simpanData() {
-  const nrp = document.getElementById("nim").value;
+  const nrp = document.getElementById("nrp").value;
   const nama = document.getElementById("nama").value;
   const jurusan = document.getElementById("jurusan").value;
   const ukm = document.getElementById("ukm").value;
@@ -66,10 +66,17 @@ function tampilkanData() {
 
   dataList.forEach((item, idx) => {
     const li = document.createElement("li");
-    li.textContent = `${item.nama} - ${item.nrp} (${item.jurusan}) → UKM: ${item.ukm}`;
+    li.textContent = `${item.nama} - NRP: ${item.nrp}, Jurusan: ${item.jurusan}, UKM: ${item.ukm}`;
     list.appendChild(li);
   });
 }
+
+window.onload = () => {
+  if (window.location.pathname.includes("dashboard.html")) {
+    checkAuth();
+    tampilkanData();
+  }
+};
 
 // Logout
 function logout() {
