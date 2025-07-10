@@ -41,7 +41,7 @@ function register() {
 function simpanData() {
   const nrp = document.getElementById("nrp").value;
   const nama = document.getElementById("nama").value;
-  const departemen = document.getElementById("departemen").value;
+  const departemen = document.getElementById("departemen").value; 
   const ukm = document.getElementById("ukm").value;
 
   if (!nrp || !nama || !departemen || !ukm) {
@@ -56,6 +56,24 @@ function simpanData() {
 
   alert("Data berhasil disimpan!");
   tampilkanData();
+}
+
+// Tampilkan data
+function tampilkanData() {
+  const list = document.getElementById("dataList");
+  list.innerHTML = "";
+  const dataList = JSON.parse(localStorage.getItem("mahasiswa")) || [];
+
+  if (dataList.length === 0) {
+    list.innerHTML = "<li>Belum ada data.</li>";
+    return;
+  }
+
+  dataList.forEach((item, idx) => {
+    const li = document.createElement("li");
+    li.textContent = `${item.nama} - NRP: ${item.nrp}, Departemen: ${item.departemen}, UKM: ${item.ukm}`;
+    list.appendChild(li);
+  });
 }
 
 // Tampilkan data mahasiswa
@@ -84,7 +102,10 @@ function logout() {
 
 // Jalankan saat halaman dimuat
 window.onload = () => {
-  if (window.location.pathname.includes("dashboard.html")) {
+  const path = window.location.pathname;
+
+  // Cek autentikasi hanya di dashboard
+  if (path.includes("dashboard.html")) {
     checkAuth();
     tampilkanData();
   }
